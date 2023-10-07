@@ -6,7 +6,13 @@ export default {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        PermanentMarker: ['Permanent Marker', 'cursive'],
+        Onest: ['Onest', 'sans-serif'],
+        YoungSerif: [ 'Young Serif', 'serif'],
+      },
+    },
   },
   plugins: [
     require('flowbite/plugin')

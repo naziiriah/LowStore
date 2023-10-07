@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Permanent Marker', cursive;
+  src: url('./assets/fonts/PermanentMarker-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Onest', sans-serif;
+  src: url('./assets/fonts/Onest-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Young Serif', serif;
+  src: url('./assets/fonts/YoungSerif-Regular.ttf');
+}
