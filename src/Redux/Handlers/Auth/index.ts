@@ -10,7 +10,13 @@ const initialState: AuthSliceType = {
 export const AuthSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    UserLogOut: (state) => {
+      state.loginStatus = 'FAILURE';
+      state.response = '';
+      sessionStorage.removeItem('auth');
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(UserLogin.pending, (state) => {
@@ -19,6 +25,7 @@ export const AuthSlice = createSlice({
       .addCase(UserLogin.fulfilled, (state, actions) => {
         state.loginStatus = 'SUCCESSFUL';
         state.response = actions.payload;
+        sessionStorage.setItem('auth', JSON.stringify(actions.payload));
       })
       .addCase(UserLogin.rejected, (state, actions) => {
         state.loginStatus = 'FAILURE';
@@ -29,5 +36,5 @@ export const AuthSlice = createSlice({
       });
   },
 });
-
+export const { UserLogOut } = AuthSlice.actions;
 export default AuthSlice.reducer;

@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Second from './pages/Second';
 import Header from './components/Header';
 import React from 'react';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/sec' element={<Second />} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </>

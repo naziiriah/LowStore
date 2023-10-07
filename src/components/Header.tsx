@@ -1,13 +1,9 @@
-'use client';
-
 import { Dropdown, Navbar, Avatar } from 'flowbite-react';
 import React from 'react';
-// import { useEffect } from 'react';
-// import { useLocation } from 'react-router-dom';
-
-('use client');
+import AuthHandler from './Auth/AuthHandler';
 
 const Header = () => {
+  const auth = JSON.parse(sessionStorage.getItem('auth')!);
   return (
     <Navbar fluid rounded>
       <Navbar.Brand href='/'>
@@ -16,17 +12,21 @@ const Header = () => {
         </span>
       </Navbar.Brand>
       <div className='flex md:order-2'>
-        <Dropdown arrowIcon={false} inline label={<Avatar alt='User settings' rounded />}>
-          <Dropdown.Header>
-            <span className='block text-sm'>Bonnie Green</span>
-            <span className='block truncate text-sm font-medium'>name@flowbite.com</span>
-          </Dropdown.Header>
-          <p>Dashboard</p>
-          <p>Settings</p>
-          <p>Earnings</p>
-          <Dropdown.Divider />
-          <p>Sign out</p>
-        </Dropdown>
+        {auth ? (
+          <Dropdown arrowIcon={false} inline label={<Avatar alt='User settings' rounded />}>
+            <Dropdown.Header>
+              <span className='block text-sm'>Bonnie Green</span>
+              <span className='block truncate text-sm font-medium'>name@flowbite.com</span>
+            </Dropdown.Header>
+            <p>User Profile</p>
+            <p>Settings</p>
+            <p>Earnings</p>
+            <Dropdown.Divider />
+            <Login />
+          </Dropdown>
+        ) : (
+          <AuthHandler />
+        )}
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>

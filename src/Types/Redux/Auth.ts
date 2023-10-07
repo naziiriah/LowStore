@@ -4,6 +4,17 @@ export interface LoginProps {
 }
 
 export interface AuthSliceType {
-  loginStatus: 'SUCCESSFUL' | 'FAILURE' | 'PENDING';
+  loginStatus: 'SUCCESSFUL' | 'FAILURE' | 'PENDING' | 'INACTIVE';
   response: string;
 }
+export interface UserSliceType {
+  userStatus: 'SUCCESSFUL' | 'FAILURE' | 'PENDING' | 'INACTIVE';
+  createUserResponse:
+    | {
+        id: ID;
+      }
+    | unknown;
+  getUserResponse: unknown;
+}
+
+type ID = string | number;
