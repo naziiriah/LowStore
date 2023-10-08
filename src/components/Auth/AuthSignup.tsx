@@ -2,23 +2,27 @@ import { Button, Label, Modal, TextInput } from 'flowbite-react';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SpinningIndicator from '../common/Spinner';
-import { CreateUser } from '../../Redux/Handlers/User/AsyncThunks';
+import { StoreUser } from '../../Redux/Handlers/User/Index';
+import SuccessAnimation from '../common/Success';
+import { UserLogin } from '../../Redux/Handlers/Auth/AsyncThunks';
 const AuthSignup = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const { userStatus } = useSelector((state) => state.user);
+  const { authStatus } = useSelector((state) => state.auth);
   const onSubmit = () => {
     const data = {
       username: email,
       password,
     };
-    dispatch(CreateUser({ data }));
+    dispatch(UserLogin({ data }));
   };
   return (
     <Modal.Body>
       <div className='space-y-6'>
-        <h3 className='text-xl font-medium text-gray-900 dark:text-white'>join to our platform</h3>
+        <h3 className='text-xl font-medium text-gray-900 dark:text-white'>
+          Sign up to our platform
+        </h3>
         <div>
           <div className='mb-2 block'>
             <Label htmlFor='email' value='Your email' />
@@ -45,10 +49,12 @@ const AuthSignup = (props) => {
         </div>
         <div className='w-full flex '>
           <Button onClick={onSubmit}>Log in to your account</Button>
-          {userStatus === 'PENDING' && <SpinningIndicator />}
-          <div className='my-2 mx-6'>
-            <SpinningIndicator />
-          </div>
+          {authStatus === 'PENDING' && (
+            <div className='my-2 mx-6'>
+              <SpinningIndicator />
+            </div>
+          )}
+          {authStatus === 'SUCCESSFUL' && <SuccessAnimation styles={'w-10 h-10'} />}
         </div>
         <div className='flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300'>
           Already registered?&nbsp;

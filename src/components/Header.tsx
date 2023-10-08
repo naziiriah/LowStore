@@ -3,7 +3,7 @@ import React from 'react';
 import AuthHandler from './Auth/AuthHandler';
 
 const Header = () => {
-  const auth = JSON.parse(sessionStorage.getItem('auth')!);
+  const auth = JSON.parse(sessionStorage.getItem('user')!);
   return (
     <Navbar fluid rounded>
       <Navbar.Brand href='/'>
@@ -15,14 +15,8 @@ const Header = () => {
         {auth ? (
           <Dropdown arrowIcon={false} inline label={<Avatar alt='User settings' rounded />}>
             <Dropdown.Header>
-              <span className='block text-sm'>Bonnie Green</span>
-              <span className='block truncate text-sm font-medium'>name@flowbite.com</span>
+              <span className='block text-sm'>{auth.user}</span>
             </Dropdown.Header>
-            <p>User Profile</p>
-            <p>Settings</p>
-            <p>Earnings</p>
-            <Dropdown.Divider />
-            <Login />
           </Dropdown>
         ) : (
           <AuthHandler />

@@ -8,7 +8,11 @@ const Axios = axios.create({ baseURL: baseURL });
 const userLogin = async ({ data }) => {
   const body = data;
   const response = await Axios.post('', body);
-  return response.data;
+  const Data = {
+    reslt: response.data,
+    data,
+  };
+  return Data;
 };
 
 const AuthHub = {

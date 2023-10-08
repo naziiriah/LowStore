@@ -3,7 +3,7 @@ import { UserLogin } from './AsyncThunks';
 import { AuthSliceType } from '../../../Types/Redux/Auth';
 
 const initialState: AuthSliceType = {
-  loginStatus: 'PENDING',
+  authStatus: 'PENDING',
   response: '',
 };
 
@@ -12,7 +12,7 @@ export const AuthSlice = createSlice({
   initialState,
   reducers: {
     UserLogOut: (state) => {
-      state.loginStatus = 'FAILURE';
+      state.authStatus = 'FAILURE';
       state.response = '';
       sessionStorage.removeItem('auth');
     },
@@ -20,19 +20,19 @@ export const AuthSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(UserLogin.pending, (state) => {
-        state.loginStatus = 'PENDING';
+        state.authStatus = 'PENDING';
       })
       .addCase(UserLogin.fulfilled, (state, actions) => {
-        state.loginStatus = 'SUCCESSFUL';
+        state.authStatus = 'SUCCESSFUL';
         state.response = actions.payload;
         sessionStorage.setItem('auth', JSON.stringify(actions.payload));
       })
       .addCase(UserLogin.rejected, (state, actions) => {
-        state.loginStatus = 'FAILURE';
+        state.authStatus = 'FAILURE';
         state.response = actions.payload;
       })
       .addDefaultCase((state) => {
-        state.loginStatus = 'FAILURE';
+        state.authStatus = 'FAILURE';
       });
   },
 });

@@ -12,7 +12,11 @@ const getUser = async ({ id }) => {
 const createUser = async ({ data }) => {
   const body = data;
   const response = await Axios.post('', body);
-  return response.data;
+  const Data = {
+    id: response.data.id,
+    user: data.username,
+  };
+  return Data;
 };
 
 const editUser = async (props: unknown) => {

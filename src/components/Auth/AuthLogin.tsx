@@ -1,25 +1,33 @@
 import { Button, Label, Modal, TextInput } from 'flowbite-react';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { UserLogin } from '../../Redux/Handlers/Auth/AsyncThunks';
 import SpinningIndicator from '../common/Spinner';
-const AuthLogin = (props) => {
+import { CreateUser } from '../../Redux/Handlers/User/AsyncThunks';
+import SuccessAnimation from '../common/Success';
+
+interface stateProps {
+  user: {
+    userStatus: 'SUCCESSFUL' | 'PENDING';
+  };
+}
+const AuthLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const { loginStatus } = useSelector((state) => state.auth);
+  const { userStatus } = useSelector((state: stateProps) => state.user);
   const onSubmit = () => {
     const data = {
       username: email,
       password,
     };
-    dispatch(UserLogin({ data }));
+    dispatch(CreateUser({ data }));
   };
+
   return (
     <Modal.Body>
       <div className='space-y-6'>
         <h3 className='text-xl font-medium text-gray-900 dark:text-white'>
-          Sign in to our platform
+          Log in to our platform
         </h3>
         <div>
           <div className='mb-2 block'>
@@ -47,19 +55,12 @@ const AuthLogin = (props) => {
         </div>
         <div className='w-full flex '>
           <Button onClick={onSubmit}>Log in to your account</Button>
-          {loginStatus === 'PENDING' && <SpinningIndicator />}
-          <div className='my-2 mx-6'>
-            <SpinningIndicator />
-          </div>
-        </div>
-        <div className='flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300'>
-          Not registered?&nbsp;
-          <Button
-            onClick={() => props.setAuthProcedures('SIGNUP')}
-            className='text-cyan-700  dark:text-cyan-500 bg-slate-100 shadow-xl'
-          >
-            create account
-          </Button>
+          {userStatus === 'PENDING' && (
+            <div className='my-2 mx-6'>
+              <SpinningIndicator />
+            </div>
+          )}
+          {userStatus === 'SUCCESSFUL' && <SuccessAnimation styles={'w-10 h-10'} />}
         </div>
       </div>
     </Modal.Body>

@@ -4,7 +4,7 @@ import axios from 'axios';
 const baseURL = import.meta.env.VITE_API_URL + 'products/';
 const Axios = axios.create({ baseURL });
 const getAllProducts = async () => {
-  const subURL = 'products';
+  const subURL = '';
   const response = await Axios.get(`${subURL}`);
   return await response.data;
 };

@@ -4,13 +4,35 @@ import { CartType } from '../../../Types/Redux/Cart';
 
 const initialState: CartType = {
   cartStatus: 'INACTIVE',
-  data: '',
+  cart: [],
 };
 
 export const CartSlice = createSlice({
   name: 'Cart',
   initialState,
-  reducers: {},
+  reducers: {
+    AddToLocalCart: (state, action) => {
+      state.cartStatus = 'PENDING';
+      setTimeout(() => {
+        state.cart.push(action.payload);
+        state.cartStatus = 'SUCCESSFUL';
+      }, 2000);
+    },
+    RemoveFromLocalCart: (state, action) => {
+      state.cartStatus = 'PENDING';
+      setTimeout(() => {
+        state.cart.filter(action.payload.id);
+        state.cartStatus = 'SUCCESSFUL';
+      }, 2000);
+    },
+    UpdateLocalCart: (state, action) => {
+      state.cartStatus = 'PENDING';
+      setTimeout(() => {
+        state.cart.filter(action.payload.id);
+        state.cartStatus = 'SUCCESSFUL';
+      }, 2000);
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(GetCartList.fulfilled, (state, action) => {
