@@ -5,6 +5,7 @@ import Loading from '../components/Loading/Loading';
 import { useSelector } from 'react-redux';
 import ErrorComponent from '../components/Error/ErrorComponent';
 import useAllProducts from '../hooks/useAllProducts';
+import IntroductionSection from '../components/Home/IntroductionSection';
 
 const Home = () => {
   const { isAllProductsPending, isAllProductsSuccess, isAllProductsFailure } = useSelector(
@@ -15,7 +16,15 @@ const Home = () => {
     <>
       {isAllProductsPending && <Loading />}
       {isAllProductsFailure && <ErrorComponent />}
-      {isAllProductsSuccess && <div className='w-full'></div>}
+      {isAllProductsSuccess && (
+        <main className='w-full'>
+          <IntroductionSection />
+          <IntroductionSection />
+          <IntroductionSection />
+          <IntroductionSection />
+          <IntroductionSection />
+        </main>
+      )}
     </>
   );
 };

@@ -4,7 +4,11 @@ import { HiInformationCircle } from 'react-icons/hi';
 
 export default function AlertWithIcon() {
   return (
-    <Alert color='failure' icon={HiInformationCircle}>
+    <Alert
+      color='failure'
+      className='opacity-80 lg:w-1/3 sm:w-full fixed'
+      icon={HiInformationCircle}
+    >
       <span>
         <p>
           <span className='font-medium'>Info alert!</span>

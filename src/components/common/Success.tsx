@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import Lottie from 'lottie-react';
-import successAnimation from '../../images/lottie/animation_lnh4xmdr.json';
-
-const SuccessAnimation = ({ styles }) => {
+import successAnimation from '../../assets/lottie/animation_lnh4xmdr.json';
+interface SuccessProp {
+  styles: string;
+}
+const SuccessAnimation = (prop: SuccessProp) => {
   useEffect(() => {
     setTimeout(() => {
       window.location.reload();
@@ -10,7 +12,7 @@ const SuccessAnimation = ({ styles }) => {
   }, []);
 
   return (
-    <main className={`${styles} flex justify-center align-middle`}>
+    <main className={`${prop.styles} flex justify-center align-middle`}>
       <Lottie animationData={successAnimation} loop={false} />
     </main>
   );

@@ -12,6 +12,11 @@ export default {
         Onest: ['Onest', 'sans-serif'],
         YoungSerif: [ 'Young Serif', 'serif'],
       },
+      backgroundImage: {
+        homeBG1:'url("./src/assets/images/hangers-1850082_1280.jpg")',
+        "homeBG": 'url("./src/assets/images/www-AG-ekaterina-ikebukuro_9336028a-1440px.jpg")',
+        "homeBGSM": 'url("./src/assets/images/www-AG-ekaterina-ikebukuro_9336028a-500px.jpg")'
+      }
     },
   },
   plugins: [
