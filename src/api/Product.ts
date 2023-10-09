@@ -15,8 +15,8 @@ const getRandomProducts = async (params: number) => {
   return await response.data;
 };
 
-const getProductByCategory = async (props: unknown) => {
-  const subURL = `category/${props}`;
+const getProductByCategory = async ({ category }) => {
+  const subURL = `category/${category}`;
   const response = await Axios.get(`${subURL}`);
   return await response.data;
 };

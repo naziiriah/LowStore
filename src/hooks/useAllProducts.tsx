@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { GetAllProducts } from '../Redux/Handlers/Product/AsyncThunks';
+import { AllProductType } from '../Types/Home';
 
 const useAllProducts = () => {
   const dispatch = useDispatch();
-
+  const { productStatus } = useSelector((state: AllProductType) => state.products);
   useEffect(() => {
-    dispatch(GetAllProducts());
+    if (productStatus !== 'SUCCESSFUL') {
+      dispatch(GetAllProducts());
+    }
   }, []);
 };
 

@@ -12,7 +12,8 @@ const AuthHandler = () => {
   return (
     <>
       <Button className=' shadow-xl' onClick={() => setOpenModal('form-elements')}>
-        <BsFillPersonPlusFill className='w-5 h-5' />
+        Log in
+        <BsFillPersonPlusFill className='ml-3 w-5 h-5' />
       </Button>
       <Modal
         show={openModal === 'form-elements'}

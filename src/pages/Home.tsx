@@ -6,23 +6,28 @@ import { useSelector } from 'react-redux';
 import ErrorComponent from '../components/Error/ErrorComponent';
 import useAllProducts from '../hooks/useAllProducts';
 import IntroductionSection from '../components/Home/IntroductionSection';
+import SecondSection from '../components/Home/SecondSection';
+import AsideSection from '../components/Home/AsideSection';
+import ShowCategories from '../components/Home/ShowCategories';
 
+interface stateType {
+  products: {
+    productStatus: 'PENDING' | 'FAILURE' | 'SUCCESSFUL';
+  };
+}
 const Home = () => {
-  const { isAllProductsPending, isAllProductsSuccess, isAllProductsFailure } = useSelector(
-    (state) => state.products,
-  );
+  const { productStatus } = useSelector((state: stateType) => state.products);
   useAllProducts();
   return (
     <>
-      {isAllProductsPending && <Loading />}
-      {isAllProductsFailure && <ErrorComponent />}
-      {isAllProductsSuccess && (
+      {productStatus === 'PENDING' && <Loading />}
+      {productStatus === 'FAILURE' && <ErrorComponent />}
+      {productStatus === 'SUCCESSFUL' && (
         <main className='w-full'>
           <IntroductionSection />
-          <IntroductionSection />
-          <IntroductionSection />
-          <IntroductionSection />
-          <IntroductionSection />
+          <SecondSection />
+          <ShowCategories />
+          <AsideSection />
         </main>
       )}
     </>

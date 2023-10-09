@@ -4,18 +4,25 @@ import Second from './pages/Second';
 import Header from './components/Header';
 import React from 'react';
 import Profile from './pages/Profile';
+import FooterComponent from './components/Footer';
+import Category from './pages/Category';
+import ScrollToTop from './components/Scroll';
 
 function App() {
   return (
     <>
       <Header />
       <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/sec' element={<Second />} />
-          <Route path='/profile' element={<Profile />} />
-        </Routes>
+        <ScrollToTop>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/sec' element={<Second />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/category/:category' element={<Category />} />
+          </Routes>
+        </ScrollToTop>
       </BrowserRouter>
+      <FooterComponent />
     </>
   );
 }

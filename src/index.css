@@ -16,3 +16,29 @@
   font-family: 'Young Serif', serif;
   src: url('./assets/fonts/YoungSerif-Regular.ttf');
 }
+
+@font-face {
+  font-family: 'Raleway', sans-serif;
+  src: url('./assets/fonts/Raleway-Bold.ttf');
+}
+
+.hover__animation:hover {
+  cursor: pointer;
+  animation: animateColorChange 1s ease-in;
+}
+
+@keyframes animateColorChange {
+  0% {
+    background-color: #000;
+    color: #fff;
+  }
+  50% {
+    background-color: #fff;
+    color: #000;
+  }
+
+  to {
+    background-color: #000;
+    color: #fff;
+  }
+}

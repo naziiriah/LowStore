@@ -1,6 +1,7 @@
 import { Dropdown, Navbar, Avatar } from 'flowbite-react';
 import React from 'react';
 import AuthHandler from './Auth/AuthHandler';
+import { motion } from 'framer-motion';
 
 const Header = () => {
   const auth = JSON.parse(sessionStorage.getItem('user')!);
@@ -28,10 +29,18 @@ const Header = () => {
           <Navbar.Link active href='/'>
             <p>Home</p>
           </Navbar.Link>
-          <Navbar.Link href='/'>About</Navbar.Link>
-          <Navbar.Link href='/'>Services</Navbar.Link>
-          <Navbar.Link href='/'>Pricing</Navbar.Link>
-          <Navbar.Link href='/'>Contact</Navbar.Link>
+          <motion.a whileHover={{ scale: 1.2, color: 'blue' }} href='/'>
+            About
+          </motion.a>
+          <motion.a whileHover={{ scale: 1.2 }} href='/'>
+            Service
+          </motion.a>
+          <motion.a whileHover={{ scale: 1.2 }} href='/'>
+            Pricing
+          </motion.a>
+          <motion.a whileHover={{ scale: 1.2 }} href='/'>
+            Contact
+          </motion.a>
         </Navbar.Collapse>
       </Navbar>
     </>

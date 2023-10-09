@@ -1,21 +1,34 @@
 import { motion } from 'framer-motion';
 import React from 'react';
+import WaveAnimation from '../common/WaveAnimation';
 
 const IntroductionSection = () => {
   return (
     <motion.article
-      transition={{ delay: 0.3 }}
+      transition={{ delay: 0.2 }}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      className='w-full h-screen bg-black 
-      xl:bg-homeBG xl:bg-cover 
-      lg:bg-homeBG lg:bg-cover 
-      md:bg-cover md:bg-homeBGSM 
-      sm:bg-cover sm:bg-homeBGSM'
+      className='w-full h-screen
+      bg-cover bg-homeBGSM
+      lg:bg-homeBG 
+      md:bg-homeBG
+      xl:bg-homeBG
+      flex justify-start'
     >
-        <div className='m-auto w-4/5 sm:w-11/12'>
-            <h2 className='font-PermanentMarker text-rose-700 text-lg'>Clothing</h2>
+      <motion.div className='w-7/12 h-full bg-blackBG bg-cover'>
+        <div className='w-9/12 m-auto mt-28 h-72'>
+          <motion.h1
+            transition={{ ease: 'linear', duration: 2, x: { duration: 1 } }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className='text-white text-6xl uppercase font-Raleway font-bold  text-start my-10'
+          >
+            The LoweStore
+          </motion.h1>
         </div>
+        <WaveAnimation />
+      </motion.div>
     </motion.article>
   );
 };

@@ -1,9 +1,9 @@
 export interface Data {
   currency: 'USD' | 'NGN' | 'EUR' | 'JPN';
-  isAllProductsPending: boolean;
-  isAllProductsSuccess: boolean;
-  isAllProductsFailure: boolean;
   products: Products[] | unknown;
+  productStatus: 'SUCCESSFUL' | 'FAILURE' | 'PENDING' | 'INACTIVE';
+  productsByCategory: Products[] | unknown;
+  productsByCategoryStatus: 'SUCCESSFUL' | 'FAILURE' | 'PENDING' | 'INACTIVE';
 }
 
 export interface Products {

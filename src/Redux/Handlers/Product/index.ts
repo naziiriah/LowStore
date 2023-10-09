@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { GetAllProducts } from './AsyncThunks';
+import { GetAllProducts, GetProductByCategory } from './AsyncThunks';
 import { Data } from '../../../Types/Redux';
 
 const initialState: Data = {
   currency: 'USD',
-  isAllProductsPending: false,
-  isAllProductsSuccess: false,
-  isAllProductsFailure: false,
+  productStatus: 'INACTIVE',
   products: '',
+  productsByCategory: '',
+  productsByCategoryStatus: 'INACTIVE',
 };
 
 export const StateSlice = createSlice({
@@ -17,21 +17,24 @@ export const StateSlice = createSlice({
   extraReducers: (builders) => {
     builders
       .addCase(GetAllProducts.pending, (state) => {
-        state.isAllProductsPending = true;
-        state.isAllProductsFailure = false;
-        state.isAllProductsSuccess = false;
+        state.productStatus = 'PENDING';
       })
       .addCase(GetAllProducts.fulfilled, (state, actions) => {
-        state.isAllProductsPending = false;
-        state.isAllProductsFailure = false;
-        state.isAllProductsSuccess = true;
+        state.productStatus = 'SUCCESSFUL';
         state.products = actions.payload;
       })
-      .addCase(GetAllProducts.rejected, (state, actions) => {
-        state.isAllProductsPending = false;
-        state.isAllProductsFailure = true;
-        state.isAllProductsSuccess = false;
-        state.products = actions.payload;
+      .addCase(GetAllProducts.rejected, (state) => {
+        state.productStatus = 'FAILURE';
+      })
+      .addCase(GetProductByCategory.pending, (state) => {
+        state.productsByCategoryStatus = 'PENDING';
+      })
+      .addCase(GetProductByCategory.fulfilled, (state, actions) => {
+        state.productsByCategoryStatus = 'SUCCESSFUL';
+        state.productsByCategory = actions.payload;
+      })
+      .addCase(GetProductByCategory.rejected, (state) => {
+        state.productsByCategoryStatus = 'FAILURE';
       });
   },
 });
