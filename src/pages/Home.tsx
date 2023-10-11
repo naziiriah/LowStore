@@ -9,6 +9,7 @@ import IntroductionSection from '../components/Home/IntroductionSection';
 import SecondSection from '../components/Home/SecondSection';
 import AsideSection from '../components/Home/AsideSection';
 import ShowCategories from '../components/Home/ShowCategories';
+import CartSection from '../components/Home/Cartsection';
 
 interface stateType {
   products: {
@@ -27,6 +28,7 @@ const Home = () => {
           <IntroductionSection />
           <SecondSection />
           <ShowCategories />
+          <CartSection />
           <AsideSection />
         </main>
       )}
