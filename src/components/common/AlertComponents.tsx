@@ -1,20 +1,37 @@
 import { Alert } from 'flowbite-react';
-import React from 'react';
-import { HiInformationCircle } from 'react-icons/hi';
+import * as React from 'react';
 
-export default function AlertWithIcon() {
-  return (
-    <Alert
-      color='failure'
-      className='opacity-80 lg:w-1/3 sm:w-full fixed'
-      icon={HiInformationCircle}
-    >
-      <span>
-        <p>
-          <span className='font-medium'>Info alert!</span>
-          Change a few things up and try submitting again.
-        </p>
-      </span>
-    </Alert>
-  );
+import { HiInformationCircle } from 'react-icons/hi';
+import { useSelector } from 'react-redux';
+
+interface stateType {
+  cart: {
+    cart: [];
+    alert: boolean;
+  };
 }
+const AlertWithIcon = () => {
+  const [alertInfo, setAlertInfo] = React.useState(false);
+  const { cart } = useSelector((state: stateType) => state.cart);
+  React.useEffect(() => {
+    setAlertInfo(true);
+
+    setTimeout(() => {
+      setAlertInfo(false);
+    }, 3000);
+  }, [cart.length]);
+  return (
+    alertInfo && (
+      <Alert color='success' className='opacity-90 w-2/3 fixed' icon={HiInformationCircle}>
+        <span>
+          <p>
+            <span className='font-medium'>Info alert!</span>
+            Item added to Cart
+          </p>
+        </span>
+      </Alert>
+    )
+  );
+};
+
+export default AlertWithIcon;

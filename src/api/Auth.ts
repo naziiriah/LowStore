@@ -1,7 +1,5 @@
 /* eslint-disable no-undef */
 import axios from 'axios';
-import { LoginProps } from '../Types/Redux/Auth';
-
 const baseURL = import.meta.env.VITE_API_URL + 'auth/login';
 const Axios = axios.create({ baseURL: baseURL });
 

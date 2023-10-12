@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { GetCartList } from './AsyncThunks';
+import { AddToCart, GetCartList } from './AsyncThunks';
 import { CartType } from '../../../Types/Redux/Cart';
 
 const initialState: CartType = {
   cartStatus: 'INACTIVE',
+  alert: false,
   cart: [],
 };
 
@@ -11,44 +12,42 @@ export const CartSlice = createSlice({
   name: 'Cart',
   initialState,
   reducers: {
-    AddToLocalCart: (state, action) => {
-      state.cartStatus = 'PENDING';
-      setTimeout(() => {
-        state.cart.push(action.payload);
-        state.cartStatus = 'SUCCESSFUL';
-      }, 2000);
+    AddToLocalCart: (state, { payload }) => {
+      state.cart.push(payload.cart);
     },
     RemoveFromLocalCart: (state, action) => {
-      state.cartStatus = 'PENDING';
-      setTimeout(() => {
-        state.cart.filter(action.payload.id);
-        state.cartStatus = 'SUCCESSFUL';
-      }, 2000);
+      state.cart.filter(action.payload.id);
     },
     UpdateLocalCart: (state, action) => {
-      state.cartStatus = 'PENDING';
-      setTimeout(() => {
-        state.cart.filter(action.payload.id);
-        state.cartStatus = 'SUCCESSFUL';
-      }, 2000);
+      state.cart.filter(action.payload.id);
     },
   },
   extraReducers(builder) {
     builder
       .addCase(GetCartList.fulfilled, (state, action) => {
         state.cartStatus = 'SUCCESSFUL';
-        state.data = action.payload;
       })
-      .addCase(GetCartList.rejected, (state, action) => {
-        (state.cartStatus = 'FAILURE'), (state.data = action.payload);
+      .addCase(GetCartList.rejected, (state) => {
+        state.cartStatus = 'FAILURE';
       })
       .addCase(GetCartList.pending, (state) => {
         state.cartStatus = 'PENDING';
       })
+      .addCase(AddToCart.pending, (state) => {
+        state.cartStatus = 'PENDING';
+      })
+      .addCase(AddToCart.rejected, (state) => {
+        state.cartStatus = 'FAILURE';
+      })
+      .addCase(AddToCart.fulfilled, (state) => {
+        state.cartStatus = 'SUCCESSFUL';
+        state.alert = true;
+      })
       .addDefaultCase((state) => {
         state.cartStatus = 'INACTIVE';
+        state.alert = false;
       });
   },
 });
-
+export const { AddToLocalCart, RemoveFromLocalCart, UpdateLocalCart } = CartSlice.actions;
 export default CartSlice.reducer;

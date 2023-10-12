@@ -16,7 +16,7 @@ const CartSection = () => {
             beatae minus voluptatum eaque ea sapiente?
           </p>
         </div>
-        <div className='lg:w-2/5 w-full h-full lg:text-start text-center -mt-52'>
+        <div className='lg:w-2/5 w-full h-full lg:text-start text-center lg:mt-0 -mt-52'>
           <div className='w-4/5 flex justify-center -mt-32 h-full'>
             <Lottie animationData={CartAnimation} loop></Lottie>
           </div>

@@ -2,6 +2,7 @@ import { Dropdown, Navbar, Avatar } from 'flowbite-react';
 import React from 'react';
 import AuthHandler from './Auth/AuthHandler';
 import { motion } from 'framer-motion';
+import AlertWithIcon from './common/AlertComponents';
 
 const Header = () => {
   const auth = JSON.parse(sessionStorage.getItem('user')!);
@@ -43,6 +44,7 @@ const Header = () => {
           </motion.a>
         </Navbar.Collapse>
       </Navbar>
+      <AlertWithIcon />
     </>
   );
 };

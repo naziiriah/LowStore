@@ -2,7 +2,6 @@ import { Button, Label, Modal, TextInput } from 'flowbite-react';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SpinningIndicator from '../common/Spinner';
-import { StoreUser } from '../../Redux/Handlers/User/Index';
 import SuccessAnimation from '../common/Success';
 import { UserLogin } from '../../Redux/Handlers/Auth/AsyncThunks';
 const AuthSignup = (props) => {

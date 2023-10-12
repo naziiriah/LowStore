@@ -6,7 +6,7 @@ const initialState: Data = {
   currency: 'USD',
   productStatus: 'INACTIVE',
   products: '',
-  productsByCategory: '',
+  productsByCategory: [],
   productsByCategoryStatus: 'INACTIVE',
 };
 

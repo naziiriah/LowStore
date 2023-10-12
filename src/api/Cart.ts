@@ -11,7 +11,7 @@ const getCartList = async () => {
 
 const addToCart = async (props: unknown) => {
   const body = props;
-  const response = await Axios.post(`${props}`, body);
+  const response = await Axios.post(``, body);
   return response.data;
 };
 

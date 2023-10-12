@@ -7,6 +7,7 @@ import Profile from './pages/Profile';
 import FooterComponent from './components/Footer';
 import Category from './pages/Category';
 import ScrollToTop from './components/Scroll';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path='/sec' element={<Second />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/category/:category' element={<Category />} />
+            <Route path='/checkout' element={<Checkout />} />
           </Routes>
         </ScrollToTop>
       </BrowserRouter>

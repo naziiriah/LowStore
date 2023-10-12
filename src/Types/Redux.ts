@@ -2,7 +2,7 @@ export interface Data {
   currency: 'USD' | 'NGN' | 'EUR' | 'JPN';
   products: Products[] | unknown;
   productStatus: 'SUCCESSFUL' | 'FAILURE' | 'PENDING' | 'INACTIVE';
-  productsByCategory: Products[] | unknown;
+  productsByCategory: Products[];
   productsByCategoryStatus: 'SUCCESSFUL' | 'FAILURE' | 'PENDING' | 'INACTIVE';
 }
 
