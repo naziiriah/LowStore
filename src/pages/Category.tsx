@@ -9,6 +9,7 @@ import ErrorComponent from '../components/Error/ErrorComponent';
 import { Dispatch } from '@reduxjs/toolkit';
 import CategoryHeader from '../components/Category/CategoryHeader';
 import ProductFile from '../components/Category/ProductFile';
+import Header from '../components/Header';
 
 interface stateType {
   products: {
@@ -26,20 +27,21 @@ const Category = () => {
     dispatch(GetProductByCategory({ category: params.category }));
   }, []);
   return (
-    <main>
-      {productsByCategoryStatus === 'PENDING' && <Loading />}
-      {productsByCategoryStatus === 'FAILURE' && <ErrorComponent />}
-      {productsByCategoryStatus === 'SUCCESSFUL' && (
-        <>
-          <CategoryHeader title={productsByCategory[0].category} />
-          {productsByCategory?.map((state) => (
-            <section key={state.id} className='w-11/12 mt-6 m-auto'>
-              <ProductFile product={state} />
-            </section>
-          ))}
-        </>
-      )}
-    </main>
+    <>
+      <main>
+        <Header />
+        {productsByCategoryStatus === 'PENDING' && <Loading />}
+        {productsByCategoryStatus === 'FAILURE' && <ErrorComponent />}
+        {productsByCategoryStatus === 'SUCCESSFUL' && (
+          <>
+            <CategoryHeader title={productsByCategory[0].category} />
+            <div className='w-11/12 mt-6 m-auto'>
+              {productsByCategory?.map((state) => <ProductFile product={state} key={state.id} />)}
+            </div>
+          </>
+        )}
+      </main>
+    </>
   );
 };
 

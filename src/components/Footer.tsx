@@ -50,11 +50,11 @@ const FooterComponent = () => {
         <div className='w-full bg-gray-200 px-4 py-6 sm:flex sm:items-center sm:justify-between'>
           <Footer.Copyright by='LowStore™' href='/' year={2023} />
           <div className='mt-4 flex space-x-6 sm:mt-0 sm:justify-center'>
-            <Footer.Icon className='' icon={BsFacebook} />
-            <Footer.Icon href='/' icon={BsInstagram} />
-            <Footer.Icon href='/' icon={BsTwitter} />
-            <Footer.Icon href='/' icon={BsGithub} />
-            <Footer.Icon href='/' icon={BsDribbble} />
+            <Footer.Icon className='' aria-label='facebook' icon={BsFacebook} />
+            <Footer.Icon href='/' aria-label='Instagram' icon={BsInstagram} />
+            <Footer.Icon href='/' aria-label='Twitter' icon={BsTwitter} />
+            <Footer.Icon href='/' aria-label='Github' icon={BsGithub} />
+            <Footer.Icon href='/' aria-label='dribble' icon={BsDribbble} />
           </div>
         </div>
       </motion.div>

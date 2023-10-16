@@ -81,7 +81,7 @@ const UpdateCart = (prop: PropType) => {
             </div>
           </div>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className='flex justify-between'>
           <Button onClick={handleSubmit}>I accept</Button>
           <Button color='gray' onClick={() => setOpenModal(undefined)}>
             Decline

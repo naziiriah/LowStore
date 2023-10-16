@@ -1,9 +1,10 @@
 import { Dropdown, Navbar, Avatar } from 'flowbite-react';
-import React from 'react';
 import AuthHandler from './Auth/AuthHandler';
 import { motion } from 'framer-motion';
 import AlertWithIcon from './common/AlertComponents';
-
+import * as React from 'react';
+import { GiShoppingCart } from 'react-icons/gi';
+import CartModal from './Cart/CartModal';
 const Header = () => {
   const auth = JSON.parse(sessionStorage.getItem('user')!);
   return (
@@ -16,11 +17,18 @@ const Header = () => {
         </Navbar.Brand>
         <div className='flex md:order-2'>
           {auth ? (
-            <Dropdown arrowIcon={false} inline label={<Avatar alt='User settings' rounded />}>
-              <Dropdown.Header>
-                <span className='block text-sm'>{auth.user}</span>
-              </Dropdown.Header>
-            </Dropdown>
+            <div className='flex '>
+              <CartModal />
+              <Dropdown
+                arrowIcon={false}
+                inline
+                label={<Avatar alt='User settings' rounded aria-label='user' />}
+              >
+                <Dropdown.Header>
+                  <span className='block text-sm'>{auth.user}</span>
+                </Dropdown.Header>
+              </Dropdown>
+            </div>
           ) : (
             <AuthHandler />
           )}

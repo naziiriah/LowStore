@@ -10,6 +10,7 @@ import SecondSection from '../components/Home/SecondSection';
 import AsideSection from '../components/Home/AsideSection';
 import ShowCategories from '../components/Home/ShowCategories';
 import CartSection from '../components/Home/Cartsection';
+import Header from '../components/Header';
 
 interface stateType {
   products: {
@@ -21,6 +22,7 @@ const Home = () => {
   useAllProducts();
   return (
     <>
+      <Header />
       {productStatus === 'PENDING' && <Loading />}
       {productStatus === 'FAILURE' && <ErrorComponent />}
       {productStatus === 'SUCCESSFUL' && (

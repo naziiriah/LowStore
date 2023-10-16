@@ -5,7 +5,7 @@ interface PropType {
 }
 const CategoryHeader = (props: PropType) => {
   return (
-    <section className='w-full my-5 text-center font-YoungSerif uppercase font-bold text-5xl'>
+    <section className='w-full my-5 text-center font-YoungSerif uppercase font-bold lg:text-5xl text-2xl'>
       {props.title}
     </section>
   );

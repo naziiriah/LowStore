@@ -7,7 +7,7 @@ import ElectronicFashionImage from '../../assets/images/category--electronic.jpg
 import JewelryFasionImage from '../../assets/images/category--jewellry-.jpg';
 const Caraousel = () => {
   return (
-    <Carousel pauseOnHover slideInterval={3000} className='lg:h-96 w-10/12 m-auto'>
+    <Carousel pauseOnHover slideInterval={3000} className='lg:h-96 h-screen w-10/12 m-auto'>
       <Cards
         url="men's clothing"
         image={MenFashionImage}
@@ -35,8 +35,8 @@ const Caraousel = () => {
         url='electronics'
         image={ElectronicFashionImage}
         categoryName='Electronics'
-        description1='🔌 Cutting-Edge Gadgets: Discover a treasure trove of the latest smartphones, laptops, smartwatches, and more, designed to keep you connected and productive.'
-        description2='💡 Smart Living: Transform your home into a smart haven with our range of smart home devices that simplify your daily routines.'
+        description1='🔌 Cutting-Edge Gadgets: Discover a treasure trove of the latest smartphones and more, designed to keep you connected and productive.'
+        description2='💡 Smart Living: Transform your home into a smart haven with smart home devices that simplify your daily routines.'
       />
     </Carousel>
   );

@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
 import Lottie from 'lottie-react';
 import successAnimation from '../../assets/lottie/animation_lnh4xmdr.json';
+import * as React from 'react';
 interface SuccessProp {
   styles: string;
 }
 const SuccessAnimation = (prop: SuccessProp) => {
-  useEffect(() => {
+  React.useEffect(() => {
     setTimeout(() => {
       window.location.reload();
     }, 2000);

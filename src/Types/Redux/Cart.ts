@@ -2,11 +2,12 @@ import { Products } from '../Redux';
 
 export interface CartType {
   cartStatus: 'SUCCESSFUL' | 'FAILURE' | 'PENDING' | 'INACTIVE';
-  cart: Cart[] | [];
+  cart: CartItem[] | [];
   alert: boolean;
+  total: number;
 }
 
-interface Cart {
+export interface CartItem {
   id: number;
   product: Products;
   amount: number;

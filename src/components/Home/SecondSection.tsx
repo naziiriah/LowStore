@@ -12,13 +12,13 @@ const SecondSection = () => {
             <h2 className='font-YoungSerif text-3xl lg:text-start text-center capitalize my-3 leading-6'>
               About us
             </h2>
-            <p className='font-Raleway text-lg text-center my-5'>
+            <p className='font-Raleway text-lg text-center lg:text-start my-5'>
               At <span className='font-bold uppercase'>the lowestore</span>, we understand the
               importance of finding quality products that suit your lifestyle, preferences, and
               budget. Whether you &apos;re searching for the latest fashion trends, cutting-edge
               electronics, home essentials, or unique gifts, we&apos;ve got you covered.
             </p>
-            <p className='font-Raleway text-lg text-center my-10'>
+            <p className='font-Raleway text-lg text-center lg:text-start my-10'>
               Our mission is to provide you with a seamless and enjoyable shopping experience right
               from the comfort of your own home. With a vast and ever-expanding catalog of products,
               a user-friendly interface, and a commitment to customer satisfaction, we strive to
