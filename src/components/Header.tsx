@@ -3,7 +3,6 @@ import AuthHandler from './Auth/AuthHandler';
 import { motion } from 'framer-motion';
 import AlertWithIcon from './common/AlertComponents';
 import * as React from 'react';
-import { GiShoppingCart } from 'react-icons/gi';
 import CartModal from './Cart/CartModal';
 const Header = () => {
   const auth = JSON.parse(sessionStorage.getItem('user')!);
@@ -35,9 +34,9 @@ const Header = () => {
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
-          <Navbar.Link active href='/'>
+          <motion.a whileHover={{ scale: 1.2, color: 'blue' }} href='/'>
             <p>Home</p>
-          </Navbar.Link>
+          </motion.a>
           <motion.a whileHover={{ scale: 1.2, color: 'blue' }} href='/'>
             About
           </motion.a>

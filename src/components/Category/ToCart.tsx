@@ -2,8 +2,7 @@ import { Button, Modal } from 'flowbite-react';
 import * as React from 'react';
 import { Products } from '../../Types/Redux';
 import { BsCartPlus } from 'react-icons/bs';
-import { MdAdd } from 'react-icons/md';
-import { FaMinus } from 'react-icons/fa';
+import { FaMinus, FaPlus } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { AddToLocalCart } from '../../Redux/Handlers/Cart';
 import { AddToCart } from '../../Redux/Handlers/Cart/AsyncThunks';
@@ -75,7 +74,7 @@ const UpdateCart = (prop: PropType) => {
                 </Button>
                 <h2 className='text-3xl w-20 text-center font-extrabold'>{amount}</h2>
                 <Button onClick={() => handleClick('add')}>
-                  <MdAdd className='w-5 h-5 text-white' />
+                  <FaPlus className='w-5 h-5 text-white' />
                 </Button>
               </div>
             </div>

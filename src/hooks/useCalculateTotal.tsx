@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+
 import { useSelector } from 'react-redux';
 import { CartItem } from '../Types/Redux/Cart';
 
@@ -9,19 +9,14 @@ interface StateType {
   };
 }
 const UseCalculateTotal = () => {
-  const [total, setTotal] = useState<number>(0);
-
   const { cart } = useSelector((state: StateType) => state.cart);
-
-  useEffect(() => {
-    for (let i = 0; i < cart.length; i++) {
-      const amount = cart[i].amount;
-      const price = cart[i].product.price;
-      const itemPrice = amount * price;
-      setTotal((prevAmount) => prevAmount + itemPrice);
-    }
-  }, [cart.length]);
-
+  let total = 0;
+  for (let i = 0; i < cart.length; i++) {
+    const amount = cart[i]?.amount ?? 0;
+    const price = cart[i]?.product.price ?? 0;
+    const itemPrice = amount * price;
+    total += itemPrice;
+  }
   return total;
 };
 

@@ -7,7 +7,11 @@ import ElectronicFashionImage from '../../assets/images/category--electronic.jpg
 import JewelryFasionImage from '../../assets/images/category--jewellry-.jpg';
 const Caraousel = () => {
   return (
-    <Carousel pauseOnHover slideInterval={3000} className='lg:h-96 h-screen w-10/12 m-auto'>
+    <Carousel
+      pauseOnHover
+      slideInterval={3000}
+      className='lg:h-96 h-xl mb-10 lg:mb-0 w-10/12 m-auto'
+    >
       <Cards
         url="men's clothing"
         image={MenFashionImage}

@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Products } from '../Redux';
 
 export interface CartType {
   cartStatus: 'SUCCESSFUL' | 'FAILURE' | 'PENDING' | 'INACTIVE';
-  cart: CartItem[] | [];
+  cart: CartItem[] | any[];
   alert: boolean;
   total: number;
 }

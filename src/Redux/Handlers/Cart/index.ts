@@ -22,12 +22,16 @@ export const CartSlice = createSlice({
       } else {
         state.cart.push(payload.cart);
       }
+      let total = 0;
       for (let i = 0; i < state.cart.length; i++) {
         const amount = state.cart[i].amount;
         const price = state.cart[i].product.price;
         const itemPrice = amount * price;
-        state.total = +itemPrice;
+        total = +itemPrice;
       }
+      state.total = total;
+      sessionStorage.setItem('cart', JSON.stringify(state.cart));
+      sessionStorage.setItem('total', JSON.stringify(state.total));
     },
     RemoveFromLocalCart: (state, { payload }) => {
       state.cart = state.cart.filter((state) => state.id !== payload.id);
@@ -39,6 +43,8 @@ export const CartSlice = createSlice({
         total = +itemPrice;
       }
       state.total = total;
+      sessionStorage.setItem('cart', JSON.stringify(state.cart));
+      sessionStorage.setItem('total', JSON.stringify(state.total));
     },
     UpdateLocalCart: (state, { payload }) => {
       const ItemExist = state.cart.find((state) => state.id === payload.cart.id);
@@ -47,6 +53,17 @@ export const CartSlice = createSlice({
         state.cart = state.cart.filter((state) => state.id !== payload.cart.id);
         state.cart.push(ItemExist);
       }
+      sessionStorage.setItem('cart', JSON.stringify(state.cart));
+      sessionStorage.setItem('total', JSON.stringify(state.total));
+    },
+    GetCartFromStorage: (state, { payload }) => {
+      state.cart = payload.cart;
+      state.total = payload.total;
+    },
+    ClearCart: (state) => {
+      state.cart = [];
+      state.total = 0;
+      sessionStorage.clear();
     },
   },
   extraReducers(builder) {
@@ -76,5 +93,6 @@ export const CartSlice = createSlice({
       });
   },
 });
-export const { AddToLocalCart, RemoveFromLocalCart } = CartSlice.actions;
+export const { AddToLocalCart, RemoveFromLocalCart, GetCartFromStorage, ClearCart } =
+  CartSlice.actions;
 export default CartSlice.reducer;

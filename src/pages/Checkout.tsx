@@ -13,17 +13,17 @@ const Checkout = () => {
   return (
     <>
       <Header />
-      <main className=' w-full min-h-screen bg-gray-100' onClick={handleGoBackButton}>
-        <div className='w-10/12 m-auto h-20 pt-20 mb-20'>
-          <Button className='bg-gray-200 capitalize' color='gray'>
+      <main className=' w-full min-h-screen bg-gray-100'>
+        <div className='w-10/12 m-auto h-20 lg:pt-10 lg:mb-10 pt-5'>
+          <Button className='bg-gray-200 capitalize' color='gray' onClick={handleGoBackButton}>
             go back
           </Button>
         </div>
-        <div className='lg:flex lg:justify-between w-10/12 rounded-md shadow-md min-h-screen m-auto'>
+        <div className='lg:flex lg:justify-between w-10/12 rounded-md min-h-screen lg:pb-10 m-auto'>
           <div className='lg:w-6/12 w-full'>
             <CheckoutForm />
           </div>
-          <div className='lg:w-5/12 w-full order-first lg:order-last'>
+          <div className='lg:w-5/12 w-full order-first lg:order-last pb-10 lg:pb-0'>
             <CartList />
           </div>
         </div>

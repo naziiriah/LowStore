@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      height: {
+        xl:"45rem"
+      },
       fontFamily: {
         PermanentMarker: ['Permanent Marker', 'cursive'],
         Onest: ['Onest', 'sans-serif'],

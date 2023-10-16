@@ -10,6 +10,7 @@ import SingleCartItem from './SingleCartItem';
 import Lottie from 'lottie-react';
 import EmptyAnimation from '../../assets/lottie/animation_lnpw5pxi.json';
 import { useNavigate } from 'react-router-dom';
+import { GetCartFromStorage } from '../../Redux/Handlers/Cart';
 
 interface StateType {
   cart: {
@@ -24,15 +25,37 @@ interface StateType {
 const CartModal = () => {
   const [openModal, setOpenModal] = React.useState<string | undefined>();
   const modalPlacement = 'top-right';
-  const { cart, cartStatus, total } = useSelector((state: StateType) => state.cart);
+  const { cart, cartStatus } = useSelector((state: StateType) => state.cart);
   const { currency } = useSelector((state: StateType) => state.products);
   const dispatch: Dispatch<any> = useDispatch();
   const navigation = useNavigate();
+  const [total, setTotal] = React.useState(0);
   React.useEffect(() => {
     if (openModal === 'placement') {
       dispatch(GetCartList());
     }
   }, [openModal]);
+  React.useEffect(() => {
+    const checkCartInStorage = JSON.parse(sessionStorage.getItem('cart')!);
+    if (checkCartInStorage) {
+      dispatch(GetCartFromStorage({ cart: checkCartInStorage }));
+    }
+  }, []);
+
+  React.useEffect(() => {
+    cart.length > 0 && setTotal(CalculateTotal());
+  }, [cart.length]);
+
+  const CalculateTotal = () => {
+    let total = 0;
+    for (let i = 0; i < cart.length; i++) {
+      const amount = cart[i]?.amount ?? 0;
+      const price = cart[i]?.product.price ?? 0;
+      const itemPrice = amount * price;
+      total += itemPrice;
+    }
+    return total;
+  };
 
   const handleClick = () => {
     navigation('/checkout');
