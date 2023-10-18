@@ -1,5 +1,5 @@
 import { Label, TextInput } from 'flowbite-react';
-import React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
 const CheckoutForm = () => {
   const auth = JSON.parse(sessionStorage.getItem('user')!);
   return (

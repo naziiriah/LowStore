@@ -95,7 +95,7 @@ const CartList = () => {
             }).format(vat + shipping + total)}
           </h3>
         </div>
-        <CheckoutModal grandTotal={vat + shipping + total} />
+        <CheckoutModal grandTotal={vat + shipping + total} cart={cart} currency={currency} />
         <div className='h-10 w-full'></div>
       </div>
     </aside>

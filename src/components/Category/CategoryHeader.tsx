@@ -1,4 +1,5 @@
-import * as React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 
 interface PropType {
   title: string;

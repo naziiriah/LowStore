@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import UserHub from '../../../api/User';
 
-export const CreateUser = createAsyncThunk('user/createUser', async (params, thunkAPI) => {
+export const CreateUser:any = createAsyncThunk('user/createUser', async (params:any, thunkAPI) => {
   try {
     return await UserHub.createUser(params);
   } catch (error: any) {
@@ -13,7 +14,7 @@ export const CreateUser = createAsyncThunk('user/createUser', async (params, thu
   }
 });
 
-export const GetUser = createAsyncThunk('user/GetUser', async (params, thunkAPI) => {
+export const GetUser = createAsyncThunk('user/GetUser', async (params:any, thunkAPI) => {
   try {
     return await UserHub.getUser(params);
   } catch (error: any) {

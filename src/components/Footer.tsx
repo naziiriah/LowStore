@@ -1,7 +1,4 @@
-import React from 'react';
-
-('use client');
-
+/* eslint-disable react/react-in-jsx-scope */
 import { Footer } from 'flowbite-react';
 import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
 import { motion } from 'framer-motion';

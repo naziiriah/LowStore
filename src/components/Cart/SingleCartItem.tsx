@@ -1,4 +1,5 @@
-import * as React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 import { CartItem } from '../../Types/Redux/Cart';
 import { Button } from 'flowbite-react';
 import { MdDelete } from 'react-icons/md';
@@ -25,14 +26,17 @@ const SingleCartItem = (prop: PropType) => {
       <div className='w-4/6 mx-5'>
         <h2 className='line-clamp-1'>{item.product.title}</h2>
         <h1 className='font-bold text-lg text-gray-800 font-Raleway'>
-          {prop.currency} {item.product.price}
+          {prop.currency}{' '}
+          {new Intl.NumberFormat('en-US', {
+            maximumFractionDigits: 2,
+            minimumFractionDigits: 2,
+          }).format(item.product.price)}
         </h1>
       </div>
       <div className='font-Raleway font-bold w-1/6'>
         <h2>X{item.amount}</h2>
       </div>
       <Button color='red' className='bg-red-600 h-10' onClick={handleDelete}>
-        {' '}
         <MdDelete className=' text-white' />
       </Button>
     </div>

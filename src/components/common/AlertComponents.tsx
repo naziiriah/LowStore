@@ -12,21 +12,23 @@ interface stateType {
 }
 const AlertWithIcon = () => {
   const [alertInfo, setAlertInfo] = React.useState(false);
-  const { cart } = useSelector((state: stateType) => state.cart);
+  const { alert } = useSelector((state: stateType) => state.cart);
   React.useEffect(() => {
-    setAlertInfo(true);
+    if(alert){
+      setAlertInfo(true);
 
     setTimeout(() => {
-      setAlertInfo(false);
-    }, 3000);
-  }, [cart.length]);
+      setAlertInfo(false);}, 3000);
+    }
+    
+  }, [alert]);
   return (
     alertInfo && (
-      <Alert color='success' className='opacity-90 w-2/3 fixed' icon={HiInformationCircle}>
+      <Alert color='success' className='opacity-90 lg:w-2/3 w-full fixed' icon={HiInformationCircle}>
         <span>
           <p>
-            <span className='font-medium'>Info alert!</span>
-            Item added to Cart
+            <h1 className='font-medium'>Info alert!</h1>
+            {alert}
           </p>
         </span>
       </Alert>

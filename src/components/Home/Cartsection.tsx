@@ -1,9 +1,9 @@
-import React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
 import Lottie from 'lottie-react';
 import CartAnimation from '../../assets/lottie/animation_lnk6zssi.json';
 const CartSection = () => {
   return (
-    <article className='w-full h-96 lg:mb-0 mb-32'>
+    <article className='w-full lg:h-64  h-96 lg:mb-0 mb-32'>
       <div className='lg:w-10/12 w-11/12 lg:flex lg:justify-between m-auto h-full'>
         <div className='lg:w-2/5 w-full h-full'>
           <h3 className='font-bold uppercase font-Raleway text-center text-lg  mb-5'>

@@ -70,6 +70,11 @@ const CartModal = () => {
         onClick={() => setOpenModal('placement')}
       >
         <TiShoppingCart className='text-xl' />
+        {cart.length > 0 && (
+          <span className='w-4 h-4 relative -top-2 text-xs rounded-full bg-gray-600 text-center text-white'>
+            {cart.length}
+          </span>
+        )}
       </Button>
       <Modal
         show={openModal === 'placement'}

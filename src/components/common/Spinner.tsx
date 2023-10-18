@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
 import { Spinner } from 'flowbite-react';
 
 const SpinningIndicator = () => {

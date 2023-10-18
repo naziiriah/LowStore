@@ -1,6 +1,4 @@
-import React from 'react';
-// import { useDispatch } from 'react-redux';
-// import { GetAllProducts } from '../Redux';
+/* eslint-disable react/react-in-jsx-scope */
 import Loading from '../components/Loading/Loading';
 import { useSelector } from 'react-redux';
 import ErrorComponent from '../components/Error/ErrorComponent';

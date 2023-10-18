@@ -1,19 +1,25 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Label, Modal, TextInput } from 'flowbite-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SpinningIndicator from '../common/Spinner';
 import { CreateUser } from '../../Redux/Handlers/User/AsyncThunks';
 import SuccessAnimation from '../common/Success';
+import { Action, Dispatch } from '@reduxjs/toolkit';
 
 interface stateProps {
   user: {
     userStatus: 'SUCCESSFUL' | 'PENDING';
   };
 }
+
+type DispatchTypeForReduxCalls = Action<any>
+
 const AuthLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch = useDispatch();
+  const dispatch:Dispatch<DispatchTypeForReduxCalls> = useDispatch();
   const { userStatus } = useSelector((state: stateProps) => state.user);
   const onSubmit = () => {
     const data = {

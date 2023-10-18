@@ -4,7 +4,7 @@ import { CartType } from '../../../Types/Redux/Cart';
 
 const initialState: CartType = {
   cartStatus: 'INACTIVE',
-  alert: false,
+  alert: '',
   cart: [],
   total: 0,
 };
@@ -19,8 +19,10 @@ export const CartSlice = createSlice({
         ItemExist.amount = payload.cart.amount + ItemExist.amount;
         state.cart = state.cart.filter((state) => state.id !== payload.cart.id);
         state.cart.push(ItemExist);
+        state.alert = `${payload.cart.product.title} is updated in cart`
       } else {
         state.cart.push(payload.cart);
+        state.alert = `${payload.cart.product.title} is added to cart`
       }
       let total = 0;
       for (let i = 0; i < state.cart.length; i++) {
@@ -34,6 +36,7 @@ export const CartSlice = createSlice({
       sessionStorage.setItem('total', JSON.stringify(state.total));
     },
     RemoveFromLocalCart: (state, { payload }) => {
+      state.alert = `${payload.cart.product.title} is rmeoved from cart`
       state.cart = state.cart.filter((state) => state.id !== payload.id);
       let total = 0;
       for (let i = 0; i < state.cart.length; i++) {
@@ -59,8 +62,10 @@ export const CartSlice = createSlice({
     GetCartFromStorage: (state, { payload }) => {
       state.cart = payload.cart;
       state.total = payload.total;
+      
     },
     ClearCart: (state) => {
+      state.alert = `cart is empty`
       state.cart = [];
       state.total = 0;
       sessionStorage.clear();
@@ -83,13 +88,11 @@ export const CartSlice = createSlice({
       .addCase(AddToCart.rejected, (state: { cartStatus: string }) => {
         state.cartStatus = 'FAILURE';
       })
-      .addCase(AddToCart.fulfilled, (state: { cartStatus: string; alert: boolean }) => {
+      .addCase(AddToCart.fulfilled, (state: { cartStatus: string;  }) => {
         state.cartStatus = 'SUCCESSFUL';
-        state.alert = true;
       })
-      .addDefaultCase((state: { cartStatus: string; alert: boolean }) => {
+      .addDefaultCase((state: { cartStatus: string; }) => {
         state.cartStatus = 'INACTIVE';
-        state.alert = false;
       });
   },
 });

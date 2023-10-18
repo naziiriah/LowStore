@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
 import { Products } from '../../Types/Redux';
 import { Rating } from 'flowbite-react';
 import { useSelector } from 'react-redux';
@@ -41,7 +41,11 @@ const ProductFile = (prop: PropType) => {
           </h2>
         </Rating>
         <h2 className='my-2 font-bold font-Raleway text-cyan-900 text-center lg:text-left text-xl'>
-          {currency} {prop.product.price}
+          {currency}{' '}
+          {new Intl.NumberFormat('en-US', {
+            maximumFractionDigits: 2,
+            minimumFractionDigits: 2,
+          }).format(prop.product.price)}
         </h2>
         <div className='flex lg:justify-start justify-center my-4 w-full'>
           <UpdateCart product={prop.product} currency={currency} />

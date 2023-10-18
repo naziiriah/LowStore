@@ -48,7 +48,11 @@ const UpdateCart = (prop: PropType) => {
   return (
     <>
       {auth && (
-        <Button onClick={() => setOpenModal('dismissible')}>
+        <Button
+          onClick={() => setOpenModal('dismissible')}
+          color='white'
+          className='bg-black text-gray-200'
+        >
           Add to cart <BsCartPlus className='ml-3 w-5 h-5' />
         </Button>
       )}
@@ -69,11 +73,19 @@ const UpdateCart = (prop: PropType) => {
                 {prop.currency} {prop.product.price}
               </h2>
               <div className='flex justify-center'>
-                <Button onClick={() => handleClick('subtract')}>
+                <Button
+                  onClick={() => handleClick('subtract')}
+                  color='gray'
+                  className='bg-black text-gray-200'
+                >
                   <FaMinus className=' w-5 h-5' />
                 </Button>
                 <h2 className='text-3xl w-20 text-center font-extrabold'>{amount}</h2>
-                <Button onClick={() => handleClick('add')}>
+                <Button
+                  onClick={() => handleClick('add')}
+                  color='gray'
+                  className='bg-black text-gray-200'
+                >
                   <FaPlus className='w-5 h-5 text-white' />
                 </Button>
               </div>
@@ -81,9 +93,12 @@ const UpdateCart = (prop: PropType) => {
           </div>
         </Modal.Body>
         <Modal.Footer className='flex justify-between'>
-          <Button onClick={handleSubmit}>I accept</Button>
-          <Button color='gray' onClick={() => setOpenModal(undefined)}>
-            Decline
+          <Button
+            color='gray'
+            className='bg-black text-gray-200 w-full uppercase font-bold font-Onest'
+            onClick={handleSubmit}
+          >
+            Add to cart
           </Button>
         </Modal.Footer>
       </Modal>

@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
 import CheckoutForm from '../components/Checkout/Form';
 import CartList from '../components/Checkout/CartList';
 import { Button } from 'flowbite-react';

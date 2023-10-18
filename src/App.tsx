@@ -1,8 +1,6 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import Second from './pages/Second';
-import React from 'react';
-import Profile from './pages/Profile';
 import FooterComponent from './components/Footer';
 import Category from './pages/Category';
 import ScrollToTop from './components/Scroll';
@@ -15,8 +13,6 @@ function App() {
         <ScrollToTop>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/sec' element={<Second />} />
-            <Route path='/profile' element={<Profile />} />
             <Route path='/category/:category' element={<Category />} />
             <Route path='/checkout' element={<Checkout />} />
           </Routes>

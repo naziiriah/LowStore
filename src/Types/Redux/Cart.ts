@@ -4,7 +4,7 @@ import { Products } from '../Redux';
 export interface CartType {
   cartStatus: 'SUCCESSFUL' | 'FAILURE' | 'PENDING' | 'INACTIVE';
   cart: CartItem[] | any[];
-  alert: boolean;
+  alert: string;
   total: number;
 }
 

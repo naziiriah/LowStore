@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
 import advert1 from '../../assets/images/istockphoto-1249219777-612x612.jpg';
 import advert2 from '../../assets/images/image-best-gear.jpg';
 const SecondSection = () => {

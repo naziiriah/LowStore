@@ -1,8 +1,8 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Dropdown, Navbar, Avatar } from 'flowbite-react';
 import AuthHandler from './Auth/AuthHandler';
 import { motion } from 'framer-motion';
 import AlertWithIcon from './common/AlertComponents';
-import * as React from 'react';
 import CartModal from './Cart/CartModal';
 const Header = () => {
   const auth = JSON.parse(sessionStorage.getItem('user')!);
@@ -11,7 +11,7 @@ const Header = () => {
       <Navbar fluid rounded>
         <Navbar.Brand href='/'>
           <span className='self-center whitespace-nowrap text-xl font-semibold dark:text-white'>
-            LowStore
+            LoweStore
           </span>
         </Navbar.Brand>
         <div className='flex md:order-2'>
@@ -34,20 +34,28 @@ const Header = () => {
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
-          <motion.a whileHover={{ scale: 1.2, color: 'blue' }} href='/'>
+          <motion.a whileHover={{ scale: 1.1 }} href='/' className='capitalize'>
             <p>Home</p>
           </motion.a>
-          <motion.a whileHover={{ scale: 1.2, color: 'blue' }} href='/'>
-            About
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            href="/category/men's clothing"
+            className='capitalize'
+          >
+            men
           </motion.a>
-          <motion.a whileHover={{ scale: 1.2 }} href='/'>
-            Service
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            href="/category/women's clothing"
+            className='capitalize'
+          >
+            women
           </motion.a>
-          <motion.a whileHover={{ scale: 1.2 }} href='/'>
-            Pricing
+          <motion.a whileHover={{ scale: 1.1 }} href='/category/jewelery' className='capitalize'>
+            jewelery
           </motion.a>
-          <motion.a whileHover={{ scale: 1.2 }} href='/'>
-            Contact
+          <motion.a whileHover={{ scale: 1.1 }} href='/category/electronics' className='capitalize'>
+            electronic
           </motion.a>
         </Navbar.Collapse>
       </Navbar>

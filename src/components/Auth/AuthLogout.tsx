@@ -1,6 +1,7 @@
+/* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/prop-types */
 import { Button, Modal } from 'flowbite-react';
-import React, { useState } from 'react';
+import  { useState } from 'react';
 
 const Logout = () => {
   const [openModal, setOpenModal] = useState<string | undefined>();

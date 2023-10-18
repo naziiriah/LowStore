@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import CartHub from '../../../api/Cart';
 
-export const GetCartList = createAsyncThunk('carts/GetCartList', async (data, thunkAPI) => {
+export const GetCartList = createAsyncThunk('carts/GetCartList', async (_data, thunkAPI) => {
   try {
     return await CartHub.getCartList();
   } catch (error: any) {
@@ -13,7 +14,7 @@ export const GetCartList = createAsyncThunk('carts/GetCartList', async (data, th
   }
 });
 
-export const AddToCart = createAsyncThunk('carts/AddToCart', async (props, thunkAPI) => {
+export const AddToCart:any = createAsyncThunk('carts/AddToCart', async (props:any, thunkAPI) => {
   try {
     return await CartHub.addToCart(props);
   } catch (error: any) {

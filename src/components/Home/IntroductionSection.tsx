@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
 import WaveAnimation from '../common/WaveAnimation';
 
 const IntroductionSection = () => {

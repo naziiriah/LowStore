@@ -1,7 +1,8 @@
+/* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/prop-types */
 
 import { Button, Modal } from 'flowbite-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AuthLogin from './AuthLogin';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 
