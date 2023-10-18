@@ -14,12 +14,12 @@ interface stateProps {
   };
 }
 
-type DispatchTypeForReduxCalls = Action<any>
+type DispatchTypeForReduxCalls = Action<any>;
 
 const AuthLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch:Dispatch<DispatchTypeForReduxCalls> = useDispatch();
+  const dispatch: Dispatch<DispatchTypeForReduxCalls> = useDispatch();
   const { userStatus } = useSelector((state: stateProps) => state.user);
   const onSubmit = () => {
     const data = {

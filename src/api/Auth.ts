@@ -4,7 +4,7 @@ import axios from 'axios';
 const baseURL = import.meta.env.VITE_API_URL + 'auth/login';
 const Axios = axios.create({ baseURL: baseURL });
 
-const userLogin = async (prop: { data: any; }) => {
+const userLogin = async (prop: { data: any }) => {
   const body = prop.data;
   const response = await Axios.post('', body);
   const Data = {

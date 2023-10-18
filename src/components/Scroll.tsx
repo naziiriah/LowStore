@@ -3,7 +3,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ScrollToTop = (props: { children: any; }) => {
+const ScrollToTop = (props: { children: any }) => {
   const { pathname } = useLocation();
 
   React.useEffect(() => {

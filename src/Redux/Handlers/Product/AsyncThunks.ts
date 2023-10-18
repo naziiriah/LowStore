@@ -2,7 +2,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import ProductHub from '../../../api/Product';
 
-export const GetAllProducts:any = createAsyncThunk(
+export const GetAllProducts: any = createAsyncThunk(
   'products/GetAllproducts',
   async (_props, thunkAPI) => {
     try {
@@ -17,21 +17,24 @@ export const GetAllProducts:any = createAsyncThunk(
   },
 );
 
-export const GetCategories = createAsyncThunk('products/GetCategories', async (_props, thunkAPI) => {
-  try {
-    return await ProductHub.getCategories();
-  } catch (error: any) {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
-    return thunkAPI.rejectWithValue(message);
-  }
-});
+export const GetCategories = createAsyncThunk(
+  'products/GetCategories',
+  async (_props, thunkAPI) => {
+    try {
+      return await ProductHub.getCategories();
+    } catch (error: any) {
+      const message =
+        (error.response && error.response.data && error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  },
+);
 
-export const GetProductByCategory:any = createAsyncThunk(
+export const GetProductByCategory: any = createAsyncThunk(
   'products/GetProductByCategory',
-  async (props:any, thunkAPI) => {
+  async (props: any, thunkAPI) => {
     try {
       return await ProductHub.getProductByCategory(props);
     } catch (error: any) {

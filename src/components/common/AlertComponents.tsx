@@ -14,17 +14,21 @@ const AlertWithIcon = () => {
   const [alertInfo, setAlertInfo] = React.useState(false);
   const { alert } = useSelector((state: stateType) => state.cart);
   React.useEffect(() => {
-    if(alert){
+    if (alert) {
       setAlertInfo(true);
 
-    setTimeout(() => {
-      setAlertInfo(false);}, 3000);
+      setTimeout(() => {
+        setAlertInfo(false);
+      }, 3000);
     }
-    
   }, [alert]);
   return (
     alertInfo && (
-      <Alert color='success' className='opacity-90 lg:w-2/3 w-full fixed' icon={HiInformationCircle}>
+      <Alert
+        color='success'
+        className='opacity-90 lg:w-2/3 w-full fixed'
+        icon={HiInformationCircle}
+      >
         <span>
           <p>
             <h1 className='font-medium'>Info alert!</h1>

@@ -47,7 +47,7 @@ const CheckoutModal = (prop: PropType) => {
             <h4 className='font-Raleway uppercase text-gray-600 '>
               you will receive an email confirmation shortly.
             </h4>
-            <div className='lg:flex h-64 w-full rounded-md'> 
+            <div className='lg:flex h-64 w-full rounded-md'>
               <div className='lg:w-2/3 lg:h-full h-2/3 bg-gray-200'>
                 <div className='w-11/12 m-auto mt-10'>
                   <div className='flex justify-between w-full py-4'>
@@ -67,14 +67,20 @@ const CheckoutModal = (prop: PropType) => {
                       <h2>X{prop.cart[0].amount}</h2>
                     </div>
                   </div>
-                  {prop.cart.length > 1 && <div className='w-full border-t-2 border-solid border-black'>
-                    <h3 className='text-center font-Raleway mt-5'>and {prop.cart.length-1} other item(s) </h3>
-                  </div>}
+                  {prop.cart.length > 1 && (
+                    <div className='w-full border-t-2 border-solid border-black'>
+                      <h3 className='text-center font-Raleway mt-5'>
+                        and {prop.cart.length - 1} other item(s){' '}
+                      </h3>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className='lg:w-1/3 lg:h-full h-1/3  bg-black flex align-bottom'>
                 <div className='w-11/12 m-auto'>
-                  <h3 className='uppercase text-gray-400 lg:text-2xl text-xl lg:text-start text-center'>grand total</h3>
+                  <h3 className='uppercase text-gray-400 lg:text-2xl text-xl lg:text-start text-center'>
+                    grand total
+                  </h3>
                   <h3 className='uppercase font-bold text-white lg:text-2xl text-xl lg:text-start text-center'>
                     {new Intl.NumberFormat('en-US', {
                       maximumFractionDigits: 2,

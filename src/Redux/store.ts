@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import ProductSlice from './Handlers/Product';
 import CartSlice from './Handlers/Cart';
-import UserSlice from './Handlers/User';
 import AuthSlice from './Handlers/Auth';
+import UserSlice from './Handlers/User';
 
 export default configureStore({
   reducer: {

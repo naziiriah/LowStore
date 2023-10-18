@@ -4,12 +4,12 @@ import axios from 'axios';
 const baseURL = import.meta.env.VITE_API_URL + 'users/';
 const Axios = axios.create({ baseURL: baseURL });
 
-const getUser = async (prop: { id: number; }) => {
+const getUser = async (prop: { id: number }) => {
   const response = await Axios.get(`${prop.id}`);
   return response.data;
 };
 
-const createUser = async (prop: { data: { username: string; }; }) => {
+const createUser = async (prop: { data: { username: string } }) => {
   const body = prop.data;
   const response = await Axios.post('', body);
   const Data = {

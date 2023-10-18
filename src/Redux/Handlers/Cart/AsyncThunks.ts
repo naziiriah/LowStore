@@ -14,7 +14,7 @@ export const GetCartList = createAsyncThunk('carts/GetCartList', async (_data, t
   }
 });
 
-export const AddToCart:any = createAsyncThunk('carts/AddToCart', async (props:any, thunkAPI) => {
+export const AddToCart: any = createAsyncThunk('carts/AddToCart', async (props: any, thunkAPI) => {
   try {
     return await CartHub.addToCart(props);
   } catch (error: any) {
