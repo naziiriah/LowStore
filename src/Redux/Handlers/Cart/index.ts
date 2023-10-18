@@ -36,7 +36,6 @@ export const CartSlice = createSlice({
       sessionStorage.setItem('total', JSON.stringify(state.total));
     },
     RemoveFromLocalCart: (state, { payload }) => {
-      state.alert = `${payload.cart.product.title} is rmeoved from cart`;
       state.cart = state.cart.filter((state) => state.id !== payload.id);
       let total = 0;
       for (let i = 0; i < state.cart.length; i++) {
@@ -46,6 +45,7 @@ export const CartSlice = createSlice({
         total = +itemPrice;
       }
       state.total = total;
+      state.alert = `item is rmeoved from cart`;
       sessionStorage.setItem('cart', JSON.stringify(state.cart));
       sessionStorage.setItem('total', JSON.stringify(state.total));
     },
